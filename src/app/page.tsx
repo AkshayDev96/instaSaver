@@ -2,12 +2,13 @@
 import { InstagramVideoForm } from "@/features/instagram/components/form";
 import Image from "next/image";
 import Head from "next/head";
-import { GoogleAnalytics } from "nextjs-google-analytics";
+import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
 
 export default function HomePage() {
+  usePageViews();
   return (
     <>
-      <GoogleAnalytics trackPageViews />
+      <GoogleAnalytics />
       <Head>
         <title>Fast Quick Saver</title>
         <meta name="title" content="Fast Quick Saver" />
