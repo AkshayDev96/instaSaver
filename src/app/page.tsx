@@ -1,10 +1,13 @@
+"use client";
 import { InstagramVideoForm } from "@/features/instagram/components/form";
 import Image from "next/image";
 import Head from "next/head";
+import { GoogleAnalytics } from "nextjs-google-analytics";
 
 export default function HomePage() {
   return (
     <>
+      <GoogleAnalytics trackPageViews />
       <Head>
         <title>Fast Quick Saver</title>
         <meta name="title" content="Fast Quick Saver" />
@@ -20,23 +23,6 @@ export default function HomePage() {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Akshay Verma" />
-
-        {/* Global Site Tag (gtag.js) - Google Analytics */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=G-38G37WWWWW`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-                window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-38G37WWWWW');
-              `,
-          }}
-        />
       </Head>
       <div className="flex flex-col py-8">
         <h1 className="gradient-text mb-8 text-balance text-center text-4xl font-extrabold text-white">

@@ -23,6 +23,7 @@ import { Input } from "@/components/ui/input";
 import { getHttpErrorMessage } from "@/lib/http";
 
 import { useVideoInfo } from "@/services/api/queries";
+import { event } from "nextjs-google-analytics";
 
 const formSchema = z.object({
   postUrl: z.string().url({
@@ -45,6 +46,7 @@ export function InstagramVideoForm() {
   const httpError = getHttpErrorMessage(error);
 
   async function downloadFile(url: any, filename: any) {
+    event("Click", { category: "Downloads" });
     const response = await fetch(url);
     const blob = await response.blob();
 
@@ -77,7 +79,7 @@ export function InstagramVideoForm() {
       console.log(videoInfo);
       setVideoLink(videoUrl);
       form.reset();
-      // downloadFile(videoUrl, filename);
+      downloadFile(videoUrl, filename);
     } catch (error: any) {
       setVideoLink("");
       console.log(error);
