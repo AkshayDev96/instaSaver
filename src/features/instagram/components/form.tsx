@@ -76,8 +76,8 @@ export function InstagramVideoForm() {
       const { filename, videoUrl } = videoInfo;
       console.log(videoInfo);
       setVideoLink(videoUrl);
-      downloadFile(videoUrl, filename);
       form.reset();
+      // downloadFile(videoUrl, filename);
     } catch (error: any) {
       setVideoLink("");
       console.log(error);

@@ -33,6 +33,37 @@ export default function HomePage() {
           </ul>
         </div>
       </section>
+      <div className="flex py-5">
+        <div className="w-half justify-center">
+          <h3 className="font-roboto text-lg font-bold">About Fast Saver</h3>
+          <p className="py-3">
+            Welcome to Fast Saver, the ultimate tool for effortlessly saving
+            Instagram content! Whether you want to download posts, stories, or
+            videos, Fast Saver makes it quick and easy. Our user-friendly
+            interface allows you to capture your favorite Instagram moments
+            without any hassle.
+          </p>
+          <h4>Key Features:</h4>
+          <ul className="list-disc px-4">
+            <li>
+              <strong>Instant Downloads:</strong> Save Instagram content in
+              seconds.
+            </li>
+            <li>
+              <strong>No Sign-Up Required:</strong> Enjoy a seamless experience
+              without the need for accounts or logins.
+            </li>
+            <li>
+              <strong>Privacy First:</strong> We prioritize your privacy; your
+              data stays safe with us.
+            </li>
+            <li>
+              <strong>Mobile Friendly:</strong> Access Fast Saver on any device,
+              anywhere, anytime.
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   );
 }
