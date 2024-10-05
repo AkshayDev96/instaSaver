@@ -35,11 +35,11 @@ export default function HomePage() {
       </section>
       <div className="flex py-5">
         <div className="w-half justify-center">
-          <h3 className="font-roboto text-lg font-bold">About Fast Saver</h3>
+          <h3 className="font-roboto text-lg font-bold">About Fast Quick Saver</h3>
           <p className="py-3">
-            Welcome to Fast Saver, the ultimate tool for effortlessly saving
+            Welcome to Fast Quick Saver, the ultimate tool for effortlessly saving
             Instagram content! Whether you want to download posts, stories, or
-            videos, Fast Saver makes it quick and easy. Our user-friendly
+            videos, Fast Quick Saver makes it quick and easy. Our user-friendly
             interface allows you to capture your favorite Instagram moments
             without any hassle.
           </p>
@@ -58,13 +58,13 @@ export default function HomePage() {
               data stays safe with us.
             </li>
             <li>
-              <strong>Mobile Friendly:</strong> Access Fast Saver on any device,
+              <strong>Mobile Friendly:</strong> Access Fast Quick Saver on any device,
               anywhere, anytime.
             </li>
           </ul>
           👉 Visit us at{" "}
-          <a href="https://insta-saver-lilac.vercel.app/">
-            https://insta-saver-lilac.vercel.app/
+          <a href="https://www.fastquicksaver.site">
+            https://www.fastquicksaver.site
           </a>{" "}
           to learn more!
         </div>
