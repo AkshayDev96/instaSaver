@@ -45,29 +45,72 @@ export function InstagramVideoForm() {
 
   const httpError = getHttpErrorMessage(error);
 
-  async function downloadFile(url: any, filename: any) {
+  // async function downloadFile(url: any, filename: any) {
+  //   event("Click", { category: "Downloads" });
+  //   const response = await fetch(url);
+  //   const blob = await response.blob();
+
+  //   // Create a temporary link element
+  //   const link = document.createElement("a");
+  //   const urlBlob = URL.createObjectURL(blob);
+
+  //   // Set the href and download attributes
+  //   link.href = urlBlob;
+  //   link.download = filename;
+
+  //   // Append to the body
+  //   document.body.appendChild(link);
+
+  //   // Trigger the download
+  //   link.click();
+
+  //   // Cleanup
+  //   document.body.removeChild(link);
+  //   URL.revokeObjectURL(urlBlob);
+  // }
+
+  async function downloadFile(url: string, filename: string) {
+    // Log the click event
     event("Click", { category: "Downloads" });
-    const response = await fetch(url);
-    const blob = await response.blob();
 
-    // Create a temporary link element
-    const link = document.createElement("a");
-    const urlBlob = URL.createObjectURL(blob);
+    try {
+        const response = await fetch(url);
 
-    // Set the href and download attributes
-    link.href = urlBlob;
-    link.download = filename;
+        // Check if the response is ok
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
 
-    // Append to the body
-    document.body.appendChild(link);
+        const blob = await response.blob();
+        const urlBlob = URL.createObjectURL(blob);
 
-    // Trigger the download
-    link.click();
+        // Create a temporary link element
+        const link = document.createElement("a");
+        link.href = urlBlob;
+        link.download = filename;
 
-    // Cleanup
-    document.body.removeChild(link);
-    URL.revokeObjectURL(urlBlob);
-  }
+        // Attempt to trigger the download
+        const msSaveOrOpenBlob = (window.navigator as any).msSaveOrOpenBlob; // Cast to any for compatibility
+        if (msSaveOrOpenBlob) {
+            // For IE
+            msSaveOrOpenBlob.call(window.navigator, blob, filename);
+        } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            // For iOS
+            window.open(urlBlob); // Open in a new tab
+        } else {
+            // For other browsers
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        // Cleanup
+        URL.revokeObjectURL(urlBlob);
+    } catch (error) {
+        console.error("Download error:", error);
+    }
+}
+
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { postUrl } = values;
@@ -76,7 +119,7 @@ export function InstagramVideoForm() {
       const videoInfo = await getVideoInfo({ postUrl });
 
       const { filename, videoUrl } = videoInfo;
-      console.log(videoInfo);
+      // console.log(videoInfo);
       setVideoLink(videoUrl);
       form.reset();
       downloadFile(videoUrl, filename);
