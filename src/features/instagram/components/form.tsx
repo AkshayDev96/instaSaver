@@ -74,43 +74,49 @@ export function InstagramVideoForm() {
     event("Click", { category: "Downloads" });
 
     try {
-        const response = await fetch(url);
+      const response = await fetch(url);
 
-        // Check if the response is ok
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
+      // Check if the response is ok
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
 
-        const blob = await response.blob();
-        const urlBlob = URL.createObjectURL(blob);
+      const blob = await response.blob();
 
-        // Create a temporary link element
-        const link = document.createElement("a");
-        link.href = urlBlob;
-        link.download = filename;
+      // Create a URL for the Blob
+      const urlBlob = URL.createObjectURL(blob);
 
-        // Attempt to trigger the download
-        const msSaveOrOpenBlob = (window.navigator as any).msSaveOrOpenBlob; // Cast to any for compatibility
-        if (msSaveOrOpenBlob) {
-            // For IE
-            msSaveOrOpenBlob.call(window.navigator, blob, filename);
-        } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            // For iOS
-            window.open(urlBlob); // Open in a new tab
-        } else {
-            // For other browsers
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-        }
+      // Create a temporary link element
+      const link = document.createElement("a");
+      link.href = urlBlob;
+      link.download = filename;
 
-        // Cleanup
+      // For iOS devices, we need to handle it differently
+      if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // Create a FileReader to read the Blob as a data URL
+        const reader = new FileReader();
+        reader.onloadend = function () {
+          const dataUrl = reader.result as string;
+          const newLink = document.createElement("a");
+          newLink.href = dataUrl;
+          newLink.download = filename;
+          document.body.appendChild(newLink);
+          newLink.click();
+          document.body.removeChild(newLink);
+          URL.revokeObjectURL(urlBlob);
+        };
+        reader.readAsDataURL(blob);
+      } else {
+        // For other browsers
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
         URL.revokeObjectURL(urlBlob);
+      }
     } catch (error) {
-        console.error("Download error:", error);
+      console.error("Download error:", error);
     }
-}
-
+  }
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { postUrl } = values;
