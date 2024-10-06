@@ -17,7 +17,7 @@ export default function HomePage() {
         />
         <meta
           name="description"
-          content=", Fast Quick Saver makes it quick and easy. Our user-friendly interface allows you to capture your favorite Instagram moments without any hassle."
+          content="Fast Quick Saver makes it quick and easy. Our user-friendly interface allows you to capture your favorite Instagram moments without any hassle."
         />
         <meta
           name="keywords"
@@ -27,6 +27,7 @@ export default function HomePage() {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta name="language" content="English" />
         <meta name="author" content="Akshay Verma" />
+        <link rel="icon" type="image/x-icon" href="/favicon-16x16.png" />
       </Head>
       <div className="flex flex-col py-8">
         <h1 className="gradient-text mb-8 text-balance text-center text-4xl font-extrabold text-white">
