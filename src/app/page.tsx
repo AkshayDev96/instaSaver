@@ -10,8 +10,11 @@ export default function HomePage() {
     <>
       <GoogleAnalytics />
       <Head>
-        <title>Fast Quick Saver</title>
-        <meta name="title" content="Fast Quick Saver" />
+        <title>Fast Quick Saver - Instagram Video Reels Downloader</title>
+        <meta
+          name="title"
+          content="Fast Quick Saver - Instagram Video Reels Downloader"
+        />
         <meta
           name="description"
           content=", Fast Quick Saver makes it quick and easy. Our user-friendly interface allows you to capture your favorite Instagram moments without any hassle."
