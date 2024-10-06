@@ -86,11 +86,6 @@ export default function HomePage() {
                 device, anywhere, anytime.
               </li>
             </ul>
-            👉 Visit us at{" "}
-            <a href="https://www.fastquicksaver.site">
-              https://www.fastquicksaver.site
-            </a>{" "}
-            to learn more!
           </div>
         </div>
       </div>
