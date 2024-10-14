@@ -10,6 +10,11 @@ export default function HomePage() {
   return (
     <>
       <GoogleAnalytics />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2563364424664462"
+        crossOrigin="anonymous"
+      ></script>
       <GTM gtmId="GTM-TG4JNMSW" />
       <noscript>
         <iframe
