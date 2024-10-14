@@ -3,12 +3,22 @@ import { InstagramVideoForm } from "@/features/instagram/components/form";
 import Image from "next/image";
 import Head from "next/head";
 import { GoogleAnalytics, usePageViews } from "nextjs-google-analytics";
+import GTM from "@/components/GTM";
 
 export default function HomePage() {
   usePageViews();
   return (
     <>
       <GoogleAnalytics />
+      <GTM gtmId="GTM-TG4JNMSW" />
+      <noscript>
+        <iframe
+          src="https://www.googletagmanager.com/ns.html?id=GTM-TG4JNMSW"
+          height="0"
+          width="0"
+          style={{ display: "none", visibility: "hidden" }}
+        />
+      </noscript>
       <Head>
         <title>Fast Quick Saver - Instagram Video Reels Downloader</title>
         <meta
