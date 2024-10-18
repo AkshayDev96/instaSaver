@@ -11,6 +11,7 @@ import { ReactQueryProvider } from "@/components/providers/react-query-provider"
 
 import { cn } from "@/lib/utils";
 import { Footer } from "@/components/Footer";
+import { Navbar } from "@/components/Navbar";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -42,7 +43,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ReactQueryProvider>
-            {/* <Navbar /> */}
+            <Navbar />
             <main className="relative h-[calc(100vh-6rem)] overflow-y-auto px-2 sm:px-4">
               {children}
             </main>

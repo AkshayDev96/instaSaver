@@ -11,23 +11,25 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const videoId = await ytdl.getVideoID(url);
+    const info = await ytdl.getInfo(url);
 
-    // Create the response stream
-    const stream: any = ytdl(url, {
-      quality: "highestvideo",
-      filter: (format) => format.hasVideo && format.hasAudio,
+    // Choose the format with both video and audio streams in MP4 format.
+    const format = ytdl.chooseFormat(info.formats, {
+      filter: (format) =>
+        format.container === "mp4" &&
+        format.hasVideo === true &&
+        format.hasAudio === true,
     });
 
-    // Set response headers
-    const responseHeaders = new Headers({
-      "Content-Disposition": `attachment; filename="${videoId}.mp4"`,
-      "Content-Type": "video/mp4",
-    });
-
-    // Return the stream with headers
-    return new NextResponse(stream, {
-      headers: responseHeaders,
+    return NextResponse.json({
+      status: 200,
+      title: info.videoDetails.title,
+      thumbnail:
+        info.videoDetails.thumbnails?.length > 0
+          ? info.videoDetails.thumbnails[2]?.url
+          : "",
+      formats: format.qualityLabel ? format : "",
+      YT_link: info.videoDetails.video_url,
     });
   } catch (error) {
     console.error("Error:", error);

@@ -5,8 +5,12 @@ type NavLink = {
 
 export const siteLinks: NavLink[] = [
   {
-    name: "Home",
+    name: "Instagram Video Downloader",
     href: "/",
+  },
+  {
+    name: "YouTube Video Downloader",
+    href: "/youtube",
   },
 ];
 
