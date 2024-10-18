@@ -1,6 +1,7 @@
 // pages/api/download.ts
 import { NextRequest, NextResponse } from "next/server";
 import ytdl from "@distube/ytdl-core";
+import cookie from "../download/cookie.json";
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
@@ -11,21 +12,27 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const cookies = [
-      { name: "cookie1", value: "Video Checking" },
-      { name: "cookie2", value: "Some New User" },
-    ];
-
     // (Optional) http-cookie-agent / undici agent options
     // Below are examples, NOT the recommended options
-    const agentOptions = {
-      pipelining: 5,
-      maxRedirections: 0,
-      localAddress: "127.0.0.1",
-    };
-
+    // const response = await fetch("https://api.ipify.org?format=json");
+    // const data = await response.json();
+    // (Optional) http-cookie-agent / undici agent options
+    // Below are examples, NOT the recommended options
+    const cookite2 = [
+      {
+        name: cookie[0].name,
+        value: cookie[0].value,
+        expirationDate: cookie[0].expirationDate,
+        domain: cookie[0].domain,
+        path: cookie[0].path,
+        secure: cookie[0].secure,
+        httpOnly: cookie[0].httpOnly,
+        hostOnly: cookie[0].hostOnly,
+        sameSite: "no_restriction",
+      },
+    ];
     // agent should be created once if you don't want to change your cookie
-    const agent = ytdl.createAgent(cookies, agentOptions);
+    const agent = ytdl.createAgent(cookite2);
 
     const info = await ytdl.getInfo(url, { agent: agent });
 
