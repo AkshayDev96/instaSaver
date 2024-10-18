@@ -32,7 +32,10 @@ export async function GET(req: NextRequest) {
       },
     ];
     // agent should be created once if you don't want to change your cookie
-    const agent = ytdl.createAgent(cookite2);
+    const agent = ytdl.createProxyAgent(
+      { uri: "http://fastquicksaver.site/api" },
+      cookite2
+    );
 
     const info = await ytdl.getInfo(url, { agent: agent });
 
