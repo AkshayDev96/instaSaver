@@ -11,7 +11,23 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const info = await ytdl.getInfo(url, { agent: ytdl.createAgent() });
+    const cookies = [
+      { name: "cookie1", value: "Video Checking" },
+      { name: "cookie2", value: "Some New User" },
+    ];
+
+    // (Optional) http-cookie-agent / undici agent options
+    // Below are examples, NOT the recommended options
+    const agentOptions = {
+      pipelining: 5,
+      maxRedirections: 0,
+      localAddress: "127.0.0.1",
+    };
+
+    // agent should be created once if you don't want to change your cookie
+    const agent = ytdl.createAgent(cookies, agentOptions);
+
+    const info = await ytdl.getInfo(url, { agent: agent });
 
     // Choose the format with both video and audio streams in MP4 format.
     const format = ytdl.chooseFormat(info.formats, {

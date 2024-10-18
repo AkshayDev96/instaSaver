@@ -11,11 +11,27 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const cookies = [
+      { name: "cookie1", value: "Video Checking" },
+      { name: "cookie2", value: "Some New User" },
+    ];
+
+    // (Optional) http-cookie-agent / undici agent options
+    // Below are examples, NOT the recommended options
+    const agentOptions = {
+      pipelining: 5,
+      maxRedirections: 0,
+      localAddress: "127.0.0.1",
+    };
+
+    // agent should be created once if you don't want to change your cookie
+    const agent = ytdl.createAgent(cookies, agentOptions);
+
     const videoId = await ytdl.getVideoID(url);
 
     // Create the response stream
     const stream: any = ytdl(url, {
-      agent:ytdl.createAgent(),
+      agent: agent,
       quality: "highestvideo",
       filter: (format) => format.hasVideo && format.hasAudio,
     });
