@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    const info = await ytdl.getInfo(url);
+    const info = await ytdl.getInfo(url, { agent: ytdl.createAgent() });
 
     // Choose the format with both video and audio streams in MP4 format.
     const format = ytdl.chooseFormat(info.formats, {

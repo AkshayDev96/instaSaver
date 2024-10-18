@@ -15,6 +15,7 @@ export async function GET(req: NextRequest) {
 
     // Create the response stream
     const stream: any = ytdl(url, {
+      agent:ytdl.createAgent(),
       quality: "highestvideo",
       filter: (format) => format.hasVideo && format.hasAudio,
     });
