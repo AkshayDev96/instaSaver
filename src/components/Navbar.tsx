@@ -30,11 +30,11 @@ export function Navbar() {
               Instagram Video Downloader
             </Link>
           </div>
-          <div className="hidden items-center gap-4 text-lg sm:gap-8 sm:pr-8 md:flex">
+          {/* <div className="hidden items-center gap-4 text-lg sm:gap-8 sm:pr-8 md:flex">
             <Link href="/youtube" className="hover:underline">
               YouTube Video Downloader
             </Link>
-          </div>
+          </div> */}
           <ThemeToggle />
         </div>
       </nav>
