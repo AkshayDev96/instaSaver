@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -56,6 +56,7 @@ export function InstagramVideoForm() {
       // console.log(videoInfo);
       setVideoLink(videoUrl);
       form.reset();
+      document.getElementById("Click1")?.click()
       downloadFile(videoUrl, filename, "Insta Downloads");
     } catch (error: any) {
       setVideoLink("");
@@ -101,7 +102,13 @@ export function InstagramVideoForm() {
         >
           <div>
             <h4 className="text-white">
-              Free instagram downloader with no ads
+              <a
+                href="https://www.cpmrevenuegate.com/e9wv9u49?key=a89ac5eca8d44b32eefb9fb68834bc84"
+                target="_blank"
+                id="Click1"
+              >
+                Free instagram downloader with no ads
+              </a>
             </h4>
           </div>
           <div className="mb-2 h-6 w-full px-2 text-start text-red-500">
@@ -128,6 +135,7 @@ export function InstagramVideoForm() {
                 </FormItem>
               )}
             />
+
             <Button
               disabled={isPending}
               type="submit"
