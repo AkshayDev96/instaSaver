@@ -25,6 +25,7 @@ import { getHttpErrorMessage } from "@/lib/http";
 import { useVideoInfo } from "@/services/api/queries";
 import downloadFile from "@/utils";
 import Head from "next/head";
+import Script from "next/script";
 
 const formSchema = z.object({
   postUrl: z.string().url({
@@ -46,10 +47,14 @@ export function InstagramVideoForm() {
 
   const httpError = getHttpErrorMessage(error);
 
+  const showAds = () => {
+    // setTimeout(() => {
+    //   document.getElementById("Click3")?.click();
+    // }, 3000);
+  };
+
   useEffect(() => {
-    setTimeout(() => {
-      document.getElementById("Click1")?.click();
-    }, 3000);
+    showAds();
   }, []);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
@@ -63,9 +68,7 @@ export function InstagramVideoForm() {
       setVideoLink(videoUrl);
       form.reset();
       downloadFile(videoUrl, filename, "Insta Downloads");
-      setTimeout(() => {
-        document.getElementById("Click1")?.click();
-      }, 3000);
+      showAds();
     } catch (error: any) {
       setVideoLink("");
       console.log(error);
@@ -111,7 +114,7 @@ export function InstagramVideoForm() {
           <div>
             <h4 className="text-white">
               <a
-                href="https://gridehornyidentifier.com/e9wv9u49?key=a89ac5eca8d44b32eefb9fb68834bc84"
+                href="https://gridehornyidentifier.com/e5dtx09q?key=d640379fcf1d1993eb6dd1325cd3252d"
                 target="_blank"
                 id="Click1"
               >
@@ -144,26 +147,39 @@ export function InstagramVideoForm() {
               )}
             />
 
-            <Button
-              disabled={isPending}
-              type="submit"
-              className="right-1 top-1 w-full text-white sm:absolute sm:w-fit"
+            <a
+              target="_blank"
+              href="https://gridehornyidentifier.com/a8zi7cpgj?key=51ce6ce8192235538d87d46d36c32b16"
             >
-              {isPending ? (
-                <Loader2 className="mr-2 animate-spin" />
-              ) : (
-                <Download className="mr-2" />
-              )}
-              Download
-            </Button>
+              <Button
+                disabled={isPending}
+                type="submit"
+                className="right-1 top-1 w-full text-white sm:absolute sm:w-fit"
+              >
+                {isPending ? (
+                  <Loader2 className="mr-2 animate-spin" />
+                ) : (
+                  <Download className="mr-2" />
+                )}
+                Download
+              </Button>
+            </a>
           </div>
         </form>
         {videoLink ? (
           <div className="rounded bg-[#28272c] px-5 py-3 ">
             <h4 className="text-white-500 pb-2 text-center text-[16px] font-bold">
-              Your Video is Downloaded!
+              <a href="https://gridehornyidentifier.com/s8c5n87s86?key=a7cd9cb9d17ffa7b935e82fae57e7854">
+                Your Video is Downloaded!
+              </a>
             </h4>
-            <video src={videoLink} controls width={250} height={150} />
+            <a
+              target="_blank"
+              id="Click3"
+              href="https://gridehornyidentifier.com/fvk0vrqiu?key=a251ee8f2e1f8a80501da8de6e5f3bac"
+            >
+              <video src={videoLink} controls width={250} height={150} />
+            </a>
             <p className="w-[250px] pt-3 text-center text-xs text-muted-foreground">
               If the download opens a new page, right click the video and then
               click Save as video.

@@ -5,9 +5,12 @@ import GTM from "@/components/GTM";
 import InstaGramAbout from "@/components/About/InstaGramAbout";
 import StepsInsta from "@/components/About/StepsInsta";
 import Head from "next/head";
+import { useState } from "react";
 
 export default function HomePage() {
   usePageViews();
+
+  const [isClicked, setClicked] = useState(false);
 
   return (
     <>
@@ -29,11 +32,26 @@ export default function HomePage() {
         </noscript>
       </Head>
       <div className="flex flex-col py-8">
-        <h1 className="gradient-text mb-8 text-balance text-center text-4xl font-extrabold text-white">
-          Instagram Video Downloader
-        </h1>
+        <a
+          href="https://gridehornyidentifier.com/u2z0bcsh6w?key=e2697b0e7f6f615588d673d0cdc000c7"
+          target="_blank"
+        >
+          <h1 className="gradient-text mb-8 text-balance text-center text-4xl font-extrabold text-white">
+            Instagram Video Downloader
+          </h1>
+        </a>
         <section className="flex flex-col items-center justify-center gap-4">
-          <InstagramVideoForm />
+          {isClicked ? (
+            <a
+              target="_blank"
+              href="https://gridehornyidentifier.com/u2z0bcsh6w?key=e2697b0e7f6f615588d673d0cdc000c7"
+              onClick={() => setClicked(false)}
+            >
+              <InstagramVideoForm />
+            </a>
+          ) : (
+            <InstagramVideoForm />
+          )}
           <StepsInsta />
         </section>
         <div className="flex py-5">
