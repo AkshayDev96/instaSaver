@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -46,6 +46,12 @@ export function InstagramVideoForm() {
 
   const httpError = getHttpErrorMessage(error);
 
+  useEffect(()=>{
+    setTimeout(() => {
+      document.getElementById("Click1")?.click();
+    }, 3000);
+  },[])
+
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { postUrl } = values;
     try {
@@ -56,8 +62,10 @@ export function InstagramVideoForm() {
       // console.log(videoInfo);
       setVideoLink(videoUrl);
       form.reset();
-      document.getElementById("Click1")?.click()
       downloadFile(videoUrl, filename, "Insta Downloads");
+      setTimeout(() => {
+        document.getElementById("Click1")?.click();
+      }, 3000);
     } catch (error: any) {
       setVideoLink("");
       console.log(error);
