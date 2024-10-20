@@ -5,12 +5,9 @@ import GTM from "@/components/GTM";
 import InstaGramAbout from "@/components/About/InstaGramAbout";
 import StepsInsta from "@/components/About/StepsInsta";
 import Head from "next/head";
-import { useState } from "react";
 
 export default function HomePage() {
   usePageViews();
-
-  const [isClicked, setClicked] = useState(false);
 
   return (
     <>
@@ -41,22 +38,23 @@ export default function HomePage() {
           </h1>
         </a>
         <section className="flex flex-col items-center justify-center gap-4">
-          {isClicked ? (
-            <a
-              target="_blank"
-              href="https://gridehornyidentifier.com/u2z0bcsh6w?key=e2697b0e7f6f615588d673d0cdc000c7"
-              onClick={() => setClicked(false)}
-            >
-              <InstagramVideoForm />
-            </a>
-          ) : (
-            <InstagramVideoForm />
-          )}
-          <StepsInsta />
+          <InstagramVideoForm />
+
+          <a
+            href="https://gridehornyidentifier.com/fvk0vrqiu?key=a251ee8f2e1f8a80501da8de6e5f3bac"
+            target="_blank"
+          >
+            <StepsInsta />
+          </a>
         </section>
         <div className="flex py-5">
           <div className="w-full">
-            <InstaGramAbout />
+            <a
+              target="_blank"
+              href="https://gridehornyidentifier.com/e5dtx09q?key=d640379fcf1d1993eb6dd1325cd3252d"
+            >
+              <InstaGramAbout />
+            </a>
           </div>
         </div>
       </div>

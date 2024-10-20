@@ -48,9 +48,9 @@ export function InstagramVideoForm() {
   const httpError = getHttpErrorMessage(error);
 
   const showAds = () => {
-    // setTimeout(() => {
-    //   document.getElementById("Click3")?.click();
-    // }, 3000);
+    setTimeout(() => {
+      document.getElementById("AutoClick")?.click();
+    }, 3000);
   };
 
   useEffect(() => {
@@ -68,7 +68,9 @@ export function InstagramVideoForm() {
       setVideoLink(videoUrl);
       form.reset();
       downloadFile(videoUrl, filename, "Insta Downloads");
-      showAds();
+      openInNewTab(
+        "https://gridehornyidentifier.com/s8c5n87s86?key=a7cd9cb9d17ffa7b935e82fae57e7854"
+      );
     } catch (error: any) {
       setVideoLink("");
       console.log(error);
@@ -83,6 +85,14 @@ export function InstagramVideoForm() {
       console.error(e);
     }
   };
+  function openInNewTab(url: string) {
+    var newWindow = window.open(url, "_blank");
+    if (newWindow) {
+      newWindow.focus(); // Focus the new tab if it's successfully opened
+    } else {
+      alert("Please allow pop-ups for this website"); // Notify if pop-ups are blocked
+    }
+  }
 
   return (
     <>
@@ -114,7 +124,7 @@ export function InstagramVideoForm() {
           <div>
             <h4 className="text-white">
               <a
-                href="https://gridehornyidentifier.com/e5dtx09q?key=d640379fcf1d1993eb6dd1325cd3252d"
+                href="https://gridehornyidentifier.com/u2z0bcsh6w?key=e2697b0e7f6f615588d673d0cdc000c7"
                 target="_blank"
                 id="Click1"
               >
@@ -147,23 +157,18 @@ export function InstagramVideoForm() {
               )}
             />
 
-            <a
-              target="_blank"
-              href="https://gridehornyidentifier.com/a8zi7cpgj?key=51ce6ce8192235538d87d46d36c32b16"
+            <Button
+              disabled={isPending}
+              type="submit"
+              className="right-1 top-1 w-full text-white sm:absolute sm:w-fit"
             >
-              <Button
-                disabled={isPending}
-                type="submit"
-                className="right-1 top-1 w-full text-white sm:absolute sm:w-fit"
-              >
-                {isPending ? (
-                  <Loader2 className="mr-2 animate-spin" />
-                ) : (
-                  <Download className="mr-2" />
-                )}
-                Download
-              </Button>
-            </a>
+              {isPending ? (
+                <Loader2 className="mr-2 animate-spin" />
+              ) : (
+                <Download className="mr-2" />
+              )}
+              Download
+            </Button>
           </div>
         </form>
         {videoLink ? (
@@ -176,7 +181,7 @@ export function InstagramVideoForm() {
             <a
               target="_blank"
               id="Click3"
-              href="https://gridehornyidentifier.com/fvk0vrqiu?key=a251ee8f2e1f8a80501da8de6e5f3bac"
+              href="https://gridehornyidentifier.com/a8zi7cpgj?key=51ce6ce8192235538d87d46d36c32b16"
             >
               <video src={videoLink} controls width={250} height={150} />
             </a>

@@ -43,8 +43,6 @@ export default function RootLayout({
           "overflow-x-hidden bg-background font-sans antialiased"
         )}
       >
-        
-        <AdBlockNotice />
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -59,6 +57,7 @@ export default function RootLayout({
             <Footer />
           </ReactQueryProvider>
         </ThemeProvider>
+        <AdBlockNotice />
       </body>
     </html>
   );
