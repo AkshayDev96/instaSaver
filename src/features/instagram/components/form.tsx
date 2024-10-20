@@ -46,11 +46,11 @@ export function InstagramVideoForm() {
 
   const httpError = getHttpErrorMessage(error);
 
-  useEffect(()=>{
+  useEffect(() => {
     setTimeout(() => {
       document.getElementById("Click1")?.click();
     }, 3000);
-  },[])
+  }, []);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const { postUrl } = values;
@@ -111,7 +111,7 @@ export function InstagramVideoForm() {
           <div>
             <h4 className="text-white">
               <a
-                href="https://www.cpmrevenuegate.com/e9wv9u49?key=a89ac5eca8d44b32eefb9fb68834bc84"
+                href="https://gridehornyidentifier.com/e9wv9u49?key=a89ac5eca8d44b32eefb9fb68834bc84"
                 target="_blank"
                 id="Click1"
               >
